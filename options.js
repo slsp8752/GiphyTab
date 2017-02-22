@@ -9,10 +9,8 @@
 var taggle;
 
 function save_options() {
-  var likesColor = document.getElementById('like').checked;
   var tagArray = taggle.getTagValues();
   chrome.storage.sync.set({
-    likesColor: likesColor,
 	tagArray: tagArray
   }, function() {
     // Update status to let user know options were saved.
@@ -29,10 +27,8 @@ function save_options() {
 function restore_options() {
   // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get({
-    likesColor: true,
 	tagArray: ['trippy','cat','dog','8bit']
   }, function(items) {
-    document.getElementById('like').checked = items.likesColor;
 	taggle = new Taggle('tags', {
 		tags: items.tagArray
 	});

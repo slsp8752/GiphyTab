@@ -1,5 +1,4 @@
 //TODO: 
-//Read tags from file
 //Placeholder gif + message when no gif is returned from giphy
 //atribution text
 //background?
@@ -9,34 +8,33 @@ if ('addEventListener' in window) {
 	window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
 	document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
 	}
+var tags;
+var randomNum;
 request = new XMLHttpRequest;
-var tags = ["trippy", "cat", "adventure-time", "futurama", "8bit", "fish", "dog", "unicorn", "bear", "koala"];
-var randomNum = Math.floor(Math.random()*tags.length); 
-console.log(randomNum);
-request.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+tags[randomNum], true);
-
-request.onload = function() {
-
-	if (request.status >= 200 && request.status < 400){
-		data = JSON.parse(request.responseText).data.image_url;
-		console.log(data);
-		document.getElementById("giphyme").innerHTML = '<img src = "'+data+'" height="250" width="250">';
-	} else {
-		console.log('reached giphy, but API returned an error');
-	}
-};
-request.onerror = function() {
-	console.log('connection error');
-};
-
-request.send();
-
-
 chrome.storage.sync.get({
-	favoriteColor: 'red'}, function(items){
-	console.log(items.favoriteColor);
-	});
-	
+	tagArray: ['trippy','cat','dog','8bit']
+}, function(items){
+	tags = items.tagArray;
+	randomNum = Math.floor(Math.random()*tags.length); 
+	request.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+tags[randomNum], true);
+
+	request.onload = function() {
+
+		if (request.status >= 200 && request.status < 400){
+			data = JSON.parse(request.responseText).data.image_url;
+			console.log(data);
+			document.getElementById("giphyme").innerHTML = '<img src = "'+data+'" height="250" width="250">';
+		} else {
+			console.log('reached giphy, but API returned an error');
+		}
+	};
+	request.onerror = function() {
+		console.log('connection error');
+	};
+
+	request.send();
+
+});
 
 var myDate = new Date(); 
 var greeting;
