@@ -1,0 +1,20 @@
+{
+  // Required
+  "manifest_version": 2,
+  "name": "GiphyTab",
+  "options_page": "options.html",
+
+  "version": "0.1",
+  "description": "A new tab page that loads a random gif from giphy each time it loads",
+  "permissions": [
+    "storage"
+  ],
+
+  // Optional
+  "author": "Slaton Spangler",
+  "chrome_url_overrides": {
+  	"newtab": "index.html"
+  }
+}
+
+  
