@@ -6,10 +6,10 @@
 }
 
 .taggle_list {
-  float: left;
-  padding: 1%;
-  margin: 0;
-  width: 90%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  width: 95%;
+
   display: inline-block;
   border-radius: 5px;
   border: 2px solid #b0b0b0;
