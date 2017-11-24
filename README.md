@@ -1,12 +1,12 @@
-# GiphyTab
+# HieroGIF
 
-![Giphytab Preview](preview.png)
+![HieroGIF Preview](preview.png)
 
-GiphyTab is a Chrome Extension that greets you with a fresh gif every time you open a new tab!
+HieroGIF is a Chrome Extension that greets you with a fresh gif every time you open a new tab!
 
-Giphytab is not yet in the Chrome Store, but you are welcome to take the files here and run it yourself. (Check out the [Getting Started Guide](https://developer.chrome.com/extensions/getstarted) if you don't know how)
+You can get HieroGIF on the [Chrome Web Store](https://chrome.google.com/webstore/detail/hierogif/dljfgojpciopkpbdciemghiagpoliebl).
 
-If you do, you'll need to request a Giphy API key (get started [here](https://developers.giphy.com/)), and add it to Giphy.js
+If you want to modify the extension from this repo, you'll need to request a Giphy API key (get started [here](https://developers.giphy.com/)), and add it to Giphy.js
 
 GiphyTab's styling is based off the "Identity" template from [HTML5UP](https://html5up.net/).
 You can find the original README for the Identity template below.
